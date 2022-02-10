@@ -1,0 +1,111 @@
+Commons: &commons
+
+Dev:
+  Common: *commons
+  LogFilePrefix: swoossh_dev
+  LogPrefix: swoossh_dev
+  CAServer:
+    HostCertSignerKey:
+       SecretEntry: swoossh/dev/certsignerkey
+       SecretRegion: us-east-1
+    UserCertSignerKey:
+      SecretEntry: swoossh/dev/certsignerkey
+      SecretRegion: us-east-1
+    CertMaxValidityDays: 5
+  Storage:
+    DDBAWSRegion: us-east-1
+    DDBTableName: CAStore
+    GSIPosixIDIndexName: gsi_posix_id
+    GSIUUIDIndexName: gsi_uuid
+    GSISecondaryGroupsIndexName: gsi_secondary_group
+    GSINameIndexName: gsi_name
+    GSIEmailIndexName: gsi_email
+    GsiTypeIndexName: gsi_type
+  HTTPServer:
+    Addr: 0.0.0.0:8443
+    OauthConfig:
+      ClientID: 3655546368-669pcpqscuq0eqhblubkh1ni3f3fl866.apps.googleusercontent.com
+      ClientSecret:
+        SecretEntry: swoossh/dev/oauthsecret
+        SecretRegion: us-east-1
+      Scopes:
+        - openid
+        - https://www.googleapis.com/auth/userinfo.email
+        - https://www.googleapis.com/auth/userinfo.profile
+      OauthCallBackHandlerPath: /swoossh/oauth/callback
+      OauthStateParamName: state
+      OauthClaimsEntitlementsField: email
+      OauthEndPointAuthURL: https://accounts.google.com/o/oauth2/v2/auth
+      OauthEndPointTokenURL: https://oauth2.googleapis.com/token
+      OIDCIssuerURL: https://accounts.google.com
+    APIKeyCreds:
+      - ApiKeyID: api_key_dev_01
+        ApiKeySecret:
+          SecretEntry: swoossh/dev/apikeysecret
+          SecretRegion: us-east-1
+    ApiKeySignatureValiditySecs: 600
+    ApiKeyAuthzReqHeader: Authorization
+    CookieKey: swoosshcookie_dev
+    CookieSecret:
+      SecretEntry: swoossh/dev/apikeysecret
+      SecretRegion: us-east-1
+    AdminUserClaimsMatches:
+      - "admin"
+    AdminHomeTmplName: templates/admin_home.tmpl
+    HomeTmplName: templates/home.tmpl
+
+
+
+Prod:
+  Common: *commons
+  LogFilePrefix: swoossh
+  LogPrefix: swoossh
+  CAServer:
+    HostCertSignerKey:
+       SecretEntry: swoossh/prod/certsignerkey
+       SecretRegion: us-east-1
+    UserCertSignerKey:
+      SecretEntry: swoossh/prod/certsignerkey
+      SecretRegion: us-east-1
+    CertMaxValidityDays: 5
+  Storage:
+    DDBAWSRegion: us-east-1
+    DDBTableName: castore
+    GSIPosixIDIndexName: gsi_posix_id
+    GSIUUIDIndexName: gsi_uuid
+    GSISecondaryGroupsIndexName: gsi_secondary_group
+    GSINameIndexName: gsi_name
+    GSIEmailIndexName: gsi_email
+    GsiTypeIndexName: gsi_type
+  HTTPServer:
+    Addr: 0.0.0.0:80
+    OauthConfig:
+      ClientID:
+      ClientSecret:
+        SecretEntry:
+        SecretRegion:
+      Scopes:
+        - openid
+        - https://www.googleapis.com/auth/userinfo.email
+        - https://www.googleapis.com/auth/userinfo.profile
+      OauthCallBackHandlerPath: /swoossh/oauth/callback
+      OauthStateParamName: state
+      OauthClaimsEntitlementsField: swoossh_role
+      OauthEndPointAuthURL:
+      OauthEndPointTokenURL:
+      OIDCIssuerURL:
+    APIKeyCreds:
+      - ApiKeyID: api_key_dev_01
+        ApiKeySecret:
+          SecretEntry: swoossh/prod/apikeysecret
+          SecretRegion: us-east-1
+    ApiKeySignatureValiditySecs: 600
+    ApiKeyAuthzReqHeader: Authorization
+    CookieKey: swoosshcookie
+    CookieSecret:
+      SecretEntry: swoossh/prod/apikeysecret
+      SecretRegion: us-east-1
+    AdminUserClaimsMatches:
+      - "admin"
+    AdminHomeTmplName: admin_home.tmpl
+    HomeTmplName: home.tmpl

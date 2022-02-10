@@ -1,0 +1,9 @@
+
+//start the local dynamodb instance
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb -inMemory
+
+//delete any existing tables
+aws dynamodb delete-table --table-name CAStore --endpoint-url http://localhost:8000
+
+//create table
+aws dynamodb create-table --cli-input-json file:///Users/chandrakanthreddy/Documents/ssh/ssh_hostside/PrincipalsCommand/storage/test/CAStore_table.json --endpoint-url http://localhost:8000

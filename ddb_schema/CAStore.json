@@ -1,0 +1,414 @@
+{
+  "ModelName": "CAStore",
+  "ModelMetadata": {
+    "Author": "Chandrakanth",
+    "DateCreated": "Oct 09, 2021, 11:03 AM",
+    "DateLastModified": "Dec 23, 2021, 03:58 PM",
+    "Description": "Data model for SSH CA Storage.",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "CAStore",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "pk",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "sk",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "name",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "uuid",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "created",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "type",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "posix_id",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "user_primary_group",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "public_key",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "valid",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "secondary_group",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "user_primary_group_posix_id",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "passwd_hash",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "sudo_claims",
+          "AttributeType": "SS"
+        },
+        {
+          "AttributeName": "certificate",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "email",
+          "AttributeType": "S"
+        }
+      ],
+      "TableFacets": [
+        {
+          "FacetName": "Fetch_User_by_PrimaryName",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "PrimaryName",
+            "SortKeyAlias": "PrimaryName"
+          },
+          "TableData": [],
+          "NonKeyAttributes": [
+            "name",
+            "uuid",
+            "created",
+            "posix_id",
+            "user_primary_group",
+            "public_key",
+            "valid"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "Add_User_By_PrimaryName",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "PrimaryName",
+            "SortKeyAlias": "PrimaryName"
+          },
+          "TableData": [],
+          "NonKeyAttributes": [
+            "name",
+            "uuid",
+            "created",
+            "type",
+            "posix_id",
+            "user_primary_group",
+            "public_key",
+            "valid"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        },
+        {
+          "FacetName": "Modify_User_By_PrimaryName",
+          "KeyAttributeAlias": {
+            "PartitionKeyAlias": "PrimaryName",
+            "SortKeyAlias": "PrimaryName"
+          },
+          "TableData": [],
+          "NonKeyAttributes": [
+            "name",
+            "uuid",
+            "created",
+            "type",
+            "posix_id",
+            "user_primary_group",
+            "public_key",
+            "valid"
+          ],
+          "DataAccess": {
+            "MySql": {}
+          }
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "gsi_posix_id",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "posix_id",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "type",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "gsi_uuid",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "uuid",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "gsi_secondary_group",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "secondary_group",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "pk",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "gsi_name",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "name",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "type",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "gsi_email",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "email",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "gsi_type",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "type",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "pk",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "TableData": [
+        {
+          "pk": {
+            "S": "user#martinc"
+          },
+          "sk": {
+            "S": "user#martinc"
+          },
+          "name": {
+            "S": "martinc"
+          },
+          "uuid": {
+            "S": "kje93-349x-184-03490"
+          },
+          "created": {
+            "S": "2021-10-01T10:10:10.898Z"
+          },
+          "type": {
+            "S": "user"
+          },
+          "posix_id": {
+            "S": "10002"
+          },
+          "user_primary_group": {
+            "S": "martinc"
+          },
+          "public_key": {
+            "S": "pem-encoded-public-key"
+          },
+          "valid": {
+            "S": "yes"
+          },
+          "user_primary_group_posix_id": {
+            "S": "10002"
+          },
+          "passwd_hash": {
+            "S": "$6$rounds=656000$87Q.iwC.g26ZRHws$jMh3lgW3Bo2aKd1SnGlBzx6M2MnlXEPkrrKRSpNDrtNNe17JXFvmeXe2dXTBq0qHCNc99EmF/ndfBZfO8eWgH1"
+          },
+          "email": {
+            "S": "martincowlsky@swossh.com"
+          }
+        },
+        {
+          "pk": {
+            "S": "user#martinc"
+          },
+          "sk": {
+            "S": "cert#expiry#2021-10-05:10:10:10898"
+          },
+          "name": {
+            "S": "martin macbook certificate"
+          },
+          "uuid": {
+            "S": "3sdk89-dskj-184-03490"
+          },
+          "created": {
+            "S": "2021-10-01T10:10:10.898Z"
+          },
+          "type": {
+            "S": "user_cert"
+          },
+          "public_key": {
+            "S": "pem-encoded-pub-key"
+          },
+          "valid": {
+            "S": "yes"
+          },
+          "certificate": {
+            "S": "ssh-ed25519-cert-v01@openssh.com AAAA..."
+          }
+        },
+        {
+          "pk": {
+            "S": "group#posix#frontend"
+          },
+          "sk": {
+            "S": "group#posix#frontend"
+          },
+          "name": {
+            "S": "frontend"
+          },
+          "uuid": {
+            "S": "scdj-2329-23j2-9cdd-cs232"
+          },
+          "created": {
+            "S": "2021-10-01T10:10:10.898Z"
+          },
+          "type": {
+            "S": "group"
+          },
+          "posix_id": {
+            "S": "21101"
+          }
+        },
+        {
+          "pk": {
+            "S": "user#martinc"
+          },
+          "sk": {
+            "S": "sg#frontend"
+          },
+          "posix_id": {
+            "S": "21101"
+          },
+          "secondary_group": {
+            "S": "frontend"
+          }
+        },
+        {
+          "pk": {
+            "S": "user#martinc"
+          },
+          "sk": {
+            "S": "sg#design"
+          },
+          "posix_id": {
+            "S": "20091"
+          },
+          "secondary_group": {
+            "S": "design"
+          }
+        },
+        {
+          "pk": {
+            "S": "group#posix#design"
+          },
+          "sk": {
+            "S": "group#posix#design"
+          },
+          "name": {
+            "S": "design"
+          },
+          "uuid": {
+            "S": "4393-dks-2kcsds-3232m"
+          },
+          "created": {
+            "S": "2021-10-01T10:10:10.898Z"
+          },
+          "type": {
+            "S": "group"
+          },
+          "posix_id": {
+            "S": "20091"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    }
+  ]
+}

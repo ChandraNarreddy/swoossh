@@ -11,11 +11,3 @@ require (
 	github.com/google/uuid v1.3.0
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
 )
-
-replace github.com/ChandraNarreddy/swoossh/user => /Users/chandrakanthreddy/Documents/ssh/ssh_hostside/PrincipalsCommand/user
-
-replace github.com/ChandraNarreddy/swoossh/group => /Users/chandrakanthreddy/Documents/ssh/ssh_hostside/PrincipalsCommand/group
-
-replace github.com/ChandraNarreddy/swoossh/ca => /Users/chandrakanthreddy/Documents/ssh/ssh_hostside/PrincipalsCommand/ca
-
-replace github.com/ChandraNarreddy/swoossh/sshcert => /Users/chandrakanthreddy/Documents/ssh/ssh_hostside/PrincipalsCommand/sshcert

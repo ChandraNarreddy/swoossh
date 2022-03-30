@@ -1,4 +1,4 @@
-# **SwooSSH - SSH Certs with CA and Identity Management all in one**
+# **SwooSSH - SSH Certs with CA and Identity Management all in one (No Agent)**
 
 SwooSSH simplfies SSH access and identity management. To begin -
 
@@ -9,12 +9,12 @@ SwooSSH simplfies SSH access and identity management. To begin -
 ```
 TrustedUserCAKeys /path_to_CA_public_key
 AuthorizedPrincipalsCommandUser root
-AuthorizedPrincipalsCommand /path_to_compiled_swoossh_cmd -cert %k -type %t -en_key env_var_name_for_entitlement
+AuthorizedPrincipalsCommand /path_to_compiled_swoossh_cmd -targetUser %u -cert %k -type %t -en_key env_var_name_for_entitlement
 ```
 
 What you get in return -
 
-* Certificate based SSH authentication
+* Agent-less certificate based SSH authentication
 * Posix user accounts wired to their OpenIDC identities
 * Auto provisioning of users as they login to your fleet hosts
 * Creation of any missing posix groups on the host

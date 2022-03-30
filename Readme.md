@@ -1,4 +1,5 @@
-# **SwooSSH - SSH Certs with CA and Identity Management all in one (No Agent)**
+![swoossh](https://github.com/ChandraNarreddy/swoossh/blob/f8994ea820fd81926b6a30b6999d1b0ce4b285e6/logo_2.png)
+# **SwooSSH - SSH Certs with CA and Identity Management all in one (No Agents)**
 
 SwooSSH simplfies SSH access and identity management. To begin -
 

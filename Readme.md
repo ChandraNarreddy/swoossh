@@ -182,6 +182,7 @@ func prepareHost(entitlementsKey string, targetUser string) (myCustomHost, error
 ```
 
 # How does it work?
+![swoossh working](https://github.com/ChandraNarreddy/swoossh/blob/724c62259a26f963cdc375f8ab8bfff3b10cfbd6/swoossh_workflow.svg)
 Swoossh is opinionated in the way it does things
 - Uses SSH Cert's extensions to carry payload about the user.
 - Swoossh's principals command can create a non-existant user on the host after ascertaining that the user is authorized to login.

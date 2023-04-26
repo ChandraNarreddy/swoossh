@@ -46,6 +46,7 @@ func DefaultHTTPServerGetUserHandler(w http.ResponseWriter, r *http.Request, srv
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-01-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")
@@ -116,6 +117,7 @@ func DefaultHTTPServerPutUserHandler(w http.ResponseWriter, r *http.Request, srv
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-02-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")
@@ -206,6 +208,7 @@ func DefaultHTTPServerPutUserHandlerNonAdmin(w http.ResponseWriter, r *http.Requ
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-06-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")
@@ -316,6 +319,7 @@ func DefaultHTTPServerPostUserHandler(w http.ResponseWriter, r *http.Request, sr
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-03-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")
@@ -377,6 +381,7 @@ func DefaultHTTPServerDeleteUserHandler(w http.ResponseWriter, r *http.Request, 
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-04-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")
@@ -449,6 +454,7 @@ func DefaultHTTPServerSearchUsersHandler(w http.ResponseWriter, r *http.Request,
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-05-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")

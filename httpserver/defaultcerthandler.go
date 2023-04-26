@@ -51,6 +51,7 @@ func DefaultHTTPServerCreateSSHUserCertHandler(w http.ResponseWriter, r *http.Re
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-25-11")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to create SSH cert for this resource")
@@ -76,12 +77,12 @@ func DefaultHTTPServerCreateSSHUserCertHandler(w http.ResponseWriter, r *http.Re
 				writeError(w, http.StatusUnauthorized, "Caller unauthorized", "Err-25-14")
 				return
 			}
-			principalName := &name
-			if principalName == nil {
+			if name == "" {
 				log.Print("principalName not found in request")
 				writeError(w, http.StatusBadRequest, "Missing input parameters", "Err-25-15")
 				return
 			}
+			principalName := &name
 			userFilter := &storage.DefaultStoreUserFilter{
 				PricipalNameProjection: principalName,
 			}
@@ -273,6 +274,7 @@ func DefaultHTTPServerGetCertsForUserHandler(w http.ResponseWriter, r *http.Requ
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-26-11")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to request SSH certificates of this resource")

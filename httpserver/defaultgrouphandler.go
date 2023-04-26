@@ -45,6 +45,7 @@ func DefaultHTTPServerGetGroupHandler(w http.ResponseWriter, r *http.Request, sr
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-11-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")
@@ -116,6 +117,7 @@ func DefaultHTTPServerPutGroupHandler(w http.ResponseWriter, r *http.Request, sr
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-12-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")
@@ -208,6 +210,7 @@ func DefaultHTTPServerPostGroupHandler(w http.ResponseWriter, r *http.Request, s
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-13-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")
@@ -269,6 +272,7 @@ func DefaultHTTPServerDeleteGroupHandler(w http.ResponseWriter, r *http.Request,
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-14-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")
@@ -340,6 +344,7 @@ func DefaultHTTPServerSearchGroupsHandler(w http.ResponseWriter, r *http.Request
 	if authnzErr != nil {
 		log.Printf("Unable to ascertain caller's authorization")
 		writeError(w, http.StatusUnauthorized, "Unable to ascertain caller's authorization", "Err-15-98")
+		return
 	}
 	if authorized != nil && !*authorized {
 		log.Printf("Caller not authorized to get this resource")

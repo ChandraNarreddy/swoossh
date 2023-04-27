@@ -4,12 +4,22 @@ go 1.16
 
 require (
 	github.com/ChandraNarreddy/siv v1.0.0
-	github.com/ChandraNarreddy/swoossh/ca v0.0.0-20220210184846-4ae100fbb7a7
-	github.com/ChandraNarreddy/swoossh/httpserver v0.0.0-20220210191307-4a445d485e1c
-	github.com/ChandraNarreddy/swoossh/storage v0.0.0-20220210190406-d81b9593c1fe
-	github.com/aws/aws-sdk-go v1.42.50
+	github.com/ChandraNarreddy/swoossh/ca v0.0.0-20230426051818-3eeaddeb348d
+	github.com/ChandraNarreddy/swoossh/group v0.0.0-20230426051818-3eeaddeb348d // indirect
+	github.com/ChandraNarreddy/swoossh/httpserver v0.0.0-20230426051818-3eeaddeb348d
+	github.com/ChandraNarreddy/swoossh/sshcert v0.0.0-20230426051818-3eeaddeb348d // indirect
+	github.com/ChandraNarreddy/swoossh/storage v0.0.0-20230426051818-3eeaddeb348d
+	github.com/ChandraNarreddy/swoossh/user v0.0.0-20230426051818-3eeaddeb348d // indirect
+	github.com/aws/aws-sdk-go v1.44.251
 	github.com/coreos/go-oidc v2.2.1+incompatible
+	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/julienschmidt/httprouter v1.3.0
-	github.com/spf13/viper v1.9.0
-	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
+	github.com/mitchellh/go-testing-interface v1.0.0 // indirect
+	github.com/pelletier/go-toml v1.9.5 // indirect
+	github.com/pelletier/go-toml/v2 v2.0.7 // indirect
+	github.com/spf13/afero v1.9.5 // indirect
+	github.com/spf13/viper v1.15.0
+	golang.org/x/crypto v0.8.0 // indirect
+	golang.org/x/oauth2 v0.7.0
+	google.golang.org/protobuf v1.30.0 // indirect
 )
